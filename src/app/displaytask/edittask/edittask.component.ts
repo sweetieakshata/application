@@ -24,6 +24,7 @@ export class EdittaskComponent implements OnInit {
         this.status=data[0].Status;
       }
     );
+
   }
 onTaskSave(f){
   this.data.editTask(f.value).subscribe(
@@ -33,3 +34,9 @@ onTaskSave(f){
   );
 }
 }
+
+
+
+
+
+

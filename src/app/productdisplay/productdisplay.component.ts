@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Product } from './product';
 import { ProductdataService } from "./productdata.service";
 import { Router } from "@angular/router";
+//ViewEncapsulation
+
 @Component({
   selector: 'app-productdisplay',
   templateUrl: './productdisplay.component.html',
-  styleUrls: ['./productdisplay.component.css']
+  styleUrls: ['./productdisplay.component.css'],
+  encapsulation:ViewEncapsulation.None
+
 })
 export class ProductdisplayComponent implements OnInit {
   arr:Product[]=[];
   name:string="watch";
+  loading:boolean=true;
   constructor(private _data: ProductdataService,private _router:Router) {}
 
   ngOnInit() {

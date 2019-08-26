@@ -41,3 +41,4 @@ export class EditproductComponent implements OnInit {
       );
       }
     }
+

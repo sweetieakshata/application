@@ -33,7 +33,7 @@
     </div>
     <div class="form-group" >
       <label>task status</label>
-      <input name="Status" [(ngModel)]="status" type="text" class="form-control" placeholder="Enter Status">
+      <input name="Status" [(ngModel)]="status"  #Status="ngModel" type="text" class="form-control" placeholder="Enter Status">
     </div>
     <div class="form-group">
       <button type="submit" class="form-control btn btn-primary" >Save User</button>

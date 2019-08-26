@@ -1,45 +1,77 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AppComponent } from './app.component';
-import { ProductdisplayComponent } from './productdisplay/productdisplay.component';
+
 import { MenuComponent } from './menu/menu.component';
 import { routing } from "./app.routing";
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { ProductaddComponent } from './productdisplay/productadd/productadd.component';
-import { UserdisplayComponent } from './userdisplay/userdisplay.component';
-import { SignupComponent } from './userdisplay/signup/signup.component';
-import { EdituserComponent } from './userdisplay/edituser/edituser.component';
-import { EditproductComponent } from './productdisplay/editproduct/editproduct.component';
-import { DisplaytaskComponent } from './displaytask/displaytask.component';
-import { AddtaskComponent } from './displaytask/addtask/addtask.component';
-import { EdittaskComponent } from './displaytask/edittask/edittask.component';
-import { SidebartaskComponent } from './sidebartask/sidebartask.component';
+
+
+
+//import { DisplaytaskComponent } from './displaytask/displaytask.component';
+//import { AddtaskComponent } from './displaytask/addtask/addtask.component';
+//import { EdittaskComponent } from './displaytask/edittask/edittask.component';
+//import { SidebartaskComponent } from './sidebartask/sidebartask.component';
+import { CustomerComponent } from './customer/customer.component';
+
+import { LoginComponent } from './login/login.component';
+import { DemoComponent } from './demo/demo.component';
+import { Demo1Component } from './demo1/demo1.component';
+import { Demo2Component } from './demo2/demo2.component';
+
+import { Interceptordemo } from './interceptordemo';
+import { Product1Component } from './product1/product1.component';
+
+
+import { HomeComponent } from './home/home.component';
+import { UserModule } from './userdisplay/user.module';
+import { UsersComponent } from './users/users.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductdisplayComponent,
+
     MenuComponent,
-    SidebarComponent,
-    ProductaddComponent,
-    UserdisplayComponent,
-    SignupComponent,
-    EdituserComponent,
-    EditproductComponent,
-    DisplaytaskComponent,
-    AddtaskComponent,
-    EdittaskComponent,
-    SidebartaskComponent
+
+
+
+
+   // DisplaytaskComponent,
+   // AddtaskComponent,
+    //EdittaskComponent,
+    CustomerComponent,
+
+    LoginComponent,
+    DemoComponent,
+    Demo1Component,
+    Demo2Component,
+    Product1Component,
+    UsersComponent,
+
+    HomeComponent,
+
+
+
+
+
   ],
   imports: [
     BrowserModule,
     routing,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    UserModule,
+
+
+
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:Interceptordemo,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
